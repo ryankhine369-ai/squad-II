@@ -1,0 +1,49 @@
+/* ===== Dark Mode ===== */
+body.dark {
+    background-image: linear-gradient(
+       rgba(0, 0, 0, 0.25)
+
+    ),
+    url("comedy.png");
+}
+
+body.dark main {
+    background-color: rgba(25, 25, 25, 0.95);
+    color: #f1f1f1;
+}
+
+body.dark h1 {
+    color: #ffffff;
+}
+
+body.dark label {
+    color: #dddddd;
+}
+
+body.dark input,
+body.dark select,
+body.dark textarea {
+    background-color: #1e1e1e;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+    color: #aaaaaa;
+}
+
+body.dark input:focus,
+body.dark select:focus,
+body.dark textarea:focus {
+    border-color: #4da3ff;
+}
+
+body.dark button {
+    background-color: #4da3ff;
+    color: #000;
+}
+
+body.dark button:hover {
+    background-color: #1e7fe6;
+}
