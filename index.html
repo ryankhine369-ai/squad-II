@@ -1,64 +1,161 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Squad II</title>
-  <style>
-    body{
-      font-family: Arial, sans-serif;
-      background: #ffffff;
-      padding: 20px;
-    }
-    h1{
-      text-align: center;
-      font-size: 40px;
-      margin-bottom: 5px;
-    }
-    h2{
-      text-align: center;
-      margin-top: 0;
-      font-size: 26px;
-      text-decoration: underline;
-    }
-    .members{
-      margin-left: 20px;
-      font-size: 20px;
-      line-height: 32px;
-    }
-    .rules{
-      margin-top: 40px;
-      font-size: 24px;
-      font-weight: bold;
-      text-decoration: underline;
-    }
-    .rule-list{
-      font-size: 20px;
-      margin-left: 25px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Nay Min Thu's Team | Squad II</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+
+            background-image: linear-gradient(
+                rgba(255, 255, 255, 0.88),
+                rgba(255, 255, 255, 0.88)
+            ),
+            url("comedy.png");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        main {
+            max-width: 480px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 9px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            padding: 12px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Welcome to Squad II</h1>
-  <h2>Team Members</h2>
 
-  <div class="members">
-    Team Leader (senior): 1. "Nay Min Thu"<br>
-    Section Commander: 2. "Win Htun Kyaw"<br>
-    Squad Commander: 3. "Aung Than Hlaing"<br><br>
-    4. "Chit Thet Oo"<br>
-    5. "U Min Soe"<br>
-    6. "Aung Myint Soe"<br>
-    7. "Zaw Naing Win"<br>
-    8. "Yee Yee Hlaing"<br>
-    9. "Myat Thazin Oo"<br>
-  </div>
+<main>
+    <h1>Personal Information</h1>
 
-  <div class="rules">Rules</div>
+    <form>
 
-  <div class="rule-list">
-    ၁။ ဇာပင်လုပ်လုပ်အစီရင်ခံပြီးမှ လုပ်ပါ.။
-  </div>
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
+
+        <label for="privateNo">Private No. (Optional)</label>
+        <input type="number" id="privateNo" name="privateNo" placeholder="Enter your private number">
+
+        <label for="position">Position</label>
+        <input
+            type="text"
+            id="position"
+            name="position"
+            placeholder="eg. senior_leader, junior_leader, squad_commander, or members"
+        >
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" min="18" placeholder="Enter your age" required>
+
+        <label for="maritalStatus">Marital Status</label>
+        <input type="text" id="maritalStatus" name="maritalStatus" placeholder="Enter your marital status">
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender" required>
+            <option value="">Select gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select>
+
+        <label for="bloodType">Blood Type</label>
+        <input type="text" id="bloodType" name="bloodType" placeholder="e.g. A+, O-, B+">
+
+        <label for="address">Address</label>
+        <textarea id="address" name="address" rows="3" placeholder="Enter address"></textarea>
+
+        <button type="submit">Submit</button>
+
+    </form>
+</main>
+
+<!-- JavaScript MUST be here -->
+<script>
+    const fullNameInput = document.getElementById("fullName");
+    const positionInput = document.getElementById("position");
+
+    const roleMap = {
+        "nay min thu": "Team Leader (Senior)",
+        "win htun kyaw": "Team Leader (Junior)",
+        "aung than hlaing": "Squad Commander"
+    };
+
+    fullNameInput.addEventListener("input", function () {
+        const name = fullNameInput.value.trim().toLowerCase();
+
+        if (roleMap[name]) {
+            positionInput.value = roleMap[name];
+            positionInput.readOnly = true;
+        } else {
+            positionInput.value = "";
+            positionInput.readOnly = false;
+        }
+    });
+</script>
 
 </body>
 </html>
